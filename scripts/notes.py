@@ -4,7 +4,11 @@ import gradio as gr
 from gradio import utils
 import inspect
 from modules import script_callbacks, scripts, hashes
-from modules.sd_models import CheckpointInfo, checkpoint_tiles, checkpoint_alisases, list_models
+from modules.sd_models import CheckpointInfo, checkpoint_tiles, list_models
+try:
+    from modules.sd_models import checkpoint_alisases as checkpoint_alisases
+except ImportError:
+    from modules.sd_models import checkpoint_aliases as checkpoint_alisases
 from modules.sd_hijack import model_hijack
 from modules.ui import create_refresh_button, save_style_symbol
 from modules import shared
